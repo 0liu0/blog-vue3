@@ -61,7 +61,8 @@
           />
         </div>
         <!-- 登录 -->
-        <div class="text-gray-900 ml-2 mr-1 mt-1.5 cursor-pointer p hover:text-blue-700">登录</div>
+        <div class="text-gray-900 ml-3 mt-1.5 mr-1 cursor-pointer hover:text-blue-700" @click="$router.push('/login')">登录</div>
+
 
         <button
           data-collapse-toggle="navbar-search"
