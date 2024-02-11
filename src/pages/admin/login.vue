@@ -19,7 +19,7 @@
         class="flex justify-center items-center h-full flex-col animate__animated animate__bounceInUp animate__fast"
       >
         <!-- 大标题，设置字体粗细、大小、下边距 -->
-        <h1 class="font-bold text-4xl mb-5">欢迎回来✨</h1>
+        <h1 class="font-bold text-4xl mb-5 text-cyan-400">欢迎回来✨</h1>
         <!-- 设置 flex 布局，内容垂直水平居中，文字颜色，以及子内容水平方向 x 轴间距 -->
         <div class="flex items-center justify-center mb-7 text-gray-400 space-x-2">
           <!-- 左边横线，高度为 1px, 宽度为 16，背景色设置 -->
@@ -36,6 +36,7 @@
               size="large"
               placeholder="请输入用户名"
               :prefix-icon="User"
+              @v-modle="form.username"
               clearable
             />
           </el-form-item>
@@ -44,14 +45,17 @@
             <el-input
               size="large"
               type="password"
-              placeholder="请输入用户名"
+              placeholder="请输入密码"
               :prefix-icon="Lock"
+              @v-modle="form.password"
               clearable
             />
           </el-form-item>
           <el-form-item>
             <!-- 登录按钮，宽度设置为 100% -->
-            <el-button class="w-full" size="large" type="primary">登录</el-button>
+            <el-button class="w-full" size="large" type="primary" @click="onSubmit"
+              >登录</el-button
+            >
           </el-form-item>
         </el-form>
       </div>
@@ -61,6 +65,21 @@
 
 <script setup>
 import { User, Lock } from "@element-plus/icons-vue";
+import { login, hello } from "@/api/admin/user";
+import { reactive } from "vue";
+
+// 定义响应式的表单对象
+const form = reactive({
+  username: "",
+  password: "",
+});
+// 登录操作
+const onSubmit = () => {
+  // let resp = login(form.username, form.password);
+  // let resp = login("liuche", "liuche");
+  let resp = hello();
+  console.log("你好啊，收到返回值：", resp);
+};
 </script>
 
 <style scoped></style>
