@@ -3,7 +3,8 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 // 导入 Element Plus 图标
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
-import App from '@/App.vue'
+import App from './App.vue'
+import 'element-plus/dist/index.css'
 import router from '@/router'
 import 'animate.css';
 

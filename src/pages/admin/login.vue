@@ -66,10 +66,10 @@
 
 <script setup>
 import {User, Lock} from "@element-plus/icons-vue";
-import {login, hello} from "@/api/admin/user";
+import {login, hello} from "@/api/admin/user.js";
 import {reactive} from "vue";
 import {useRouter} from "vue-router";
-import {ElNotification} from "element-plus";
+import {ElMessage, ElNotification} from "element-plus";
 
 // 定义响应式的表单对象
 const form = reactive({
@@ -105,16 +105,12 @@ const onSubmit = () => {
   //     });
   //   });
   console.log("你好啊");
-  this.$message({
-    message: "恭喜你，这是一条成功消息",
-    type: "success",
-  });
-
+  ElMessage("你好啊")
   ElNotification({
-    title: "登录成功",
-    message: "欢迎回来！",
-    type: "success",
-  });
+    title: 'Info',
+    message: 'This is an info message',
+    type: 'info',
+  })
 };
 </script>
 
